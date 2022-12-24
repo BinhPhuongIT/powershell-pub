@@ -21,8 +21,8 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 # Install Scoop
-iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
-set-executionpolicy unrestricted -s cu
+#iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
+#set-executionpolicy unrestricted -s cu
 # Set-ExecutionPolicy RemoteSigned -scope CurrentUser
 
 exit
