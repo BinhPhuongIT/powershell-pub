@@ -26,8 +26,10 @@ del c:\tightvnc.msi
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 # Install Scoop
-#iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
-#set-executionpolicy unrestricted -s cu
-# Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+irm get.scoop.sh -outfile 'install.ps1'
+.\install.ps1 -RunAsAdmin [-OtherParameters ...]
+# I don't care about other parameters and want a one-line command
+# iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
+
 
 exit
