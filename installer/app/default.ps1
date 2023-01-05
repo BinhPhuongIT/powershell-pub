@@ -21,7 +21,7 @@ scoop install winrar
 # zip
 scoop install zip
 # foxit-reader
-scoop install foxit-reader
+# scoop install foxit-reader
 # Google Chrome
 scoop install googlechrome
 # Teamviewer
@@ -31,5 +31,5 @@ scoop install anydesk
 
 # Unikey
 choco install -y -f unikey
-choco install -y -f office365business
+# choco install -y -f office365business
 choco install -y -f ultraviewer
