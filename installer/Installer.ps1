@@ -26,10 +26,10 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 # Install Scoop
-irm get.scoop.sh -outfile 'install.ps1'
-.\install.ps1 -RunAsAdmin
+# irm get.scoop.sh -outfile 'install.ps1'
+# .\install.ps1 -RunAsAdmin
 # I don't care about other parameters and want a one-line command
-# iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
+iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
 
 
 exit
