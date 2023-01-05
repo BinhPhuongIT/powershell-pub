@@ -27,7 +27,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 # Install Scoop
 irm get.scoop.sh -outfile 'install.ps1'
-.\install.ps1 -RunAsAdmin [-OtherParameters ...]
+.\install.ps1 -RunAsAdmin
 # I don't care about other parameters and want a one-line command
 # iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
 
