@@ -30,6 +30,6 @@ scoop install googlechrome
 scoop install anydesk
 
 # Unikey
-choco install unikey
-choco install office365business
-choco install ultraviewer
+choco install -y -f unikey
+choco install -y -f office365business
+choco install -y -f ultraviewer
