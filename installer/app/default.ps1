@@ -25,9 +25,11 @@ scoop install foxit-reader
 # Google Chrome
 scoop install googlechrome
 # Teamviewer
-scoop install teamviewer
+# scoop install teamviewer
 # Anydesk
 scoop install anydesk
 
 # Unikey
 choco install unikey
+choco install office365business
+choco install ultraviewer
