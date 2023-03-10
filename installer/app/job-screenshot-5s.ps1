@@ -13,3 +13,5 @@ Register-ScheduledJob -Name "ScreenshotJob" -FilePath $ps1Path -Trigger (New-Job
 # Get-ScheduledJob
 # Unregister-ScheduledJob ScreenshotJob2
 
+
+Register-ScheduledJob -Name "ScreenshotJob" -ScriptBlock {python.exe 'C:\Program Files\screenshot.py'} -Trigger (New-JobTrigger -AtLogon -RandomDelay 00:00:15) -ScheduledJobOption (New-ScheduledJobOption -RunElevated)
