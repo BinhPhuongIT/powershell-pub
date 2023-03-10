@@ -14,6 +14,8 @@ set expandtab
 set backupdir=$TEMP
 ' | out-file ~/.vimrc -enc oem -append
 
+scoop install python
+
 # curl
 scoop install curl
 # winrar
