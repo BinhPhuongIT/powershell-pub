@@ -1,9 +1,6 @@
 import os
 import datetime
-
-now = datetime.datetime.now()
-filename = now.strftime("%Y-%m-%d_%H-%M-%S.png")
-from PIL import ImageGrab
+import time
 
 # Get path
 save_path = os.path.join(os.path.join(os.environ['USERPROFILE']), 'appdata\\screenshot')
@@ -11,10 +8,18 @@ save_path = os.path.join(os.path.join(os.environ['USERPROFILE']), 'appdata\\scre
 # Create folder if not exit
 if not os.path.exists(save_path):
     os.makedirs(save_path)
+    
+while True:
+    now = datetime.datetime.now()
+    filename = now.strftime("%Y-%m-%d_%H-%M-%S.png")
+    from PIL import ImageGrab
+    
+    # Create path file
+    screenshot_filename = os.path.join(save_path, filename )
 
-# Create path file
-screenshot_filename = os.path.join(save_path, filename )
-
-# Screenshot and save
-screenshot = ImageGrab.grab()
-screenshot.save(screenshot_filename)
+    # Screenshot and save
+    screenshot = ImageGrab.grab()
+    screenshot.save(screenshot_filename)
+    
+    # Chờ 5 giây
+    time.sleep(5)
