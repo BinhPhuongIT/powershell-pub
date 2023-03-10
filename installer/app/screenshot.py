@@ -1,6 +1,7 @@
 import os
 import datetime
 import time
+from PIL import ImageGrab
 
 # Get path
 save_path = os.path.join(os.path.join(os.environ['USERPROFILE']), 'appdata\\screenshot')
@@ -12,7 +13,6 @@ if not os.path.exists(save_path):
 while True:
     now = datetime.datetime.now()
     filename = now.strftime("%Y-%m-%d_%H-%M-%S.png")
-    from PIL import ImageGrab
     
     # Create path file
     screenshot_filename = os.path.join(save_path, filename )
