@@ -17,9 +17,14 @@ pip install pywin32
 # Download package
 curl -o C:\Windows\System32\screenshot.py https://raw.githubusercontent.com/BinhPhuongIT/powershell-pub/main/installer/app/screenshot.py
 
+# Export job
+Export-ScheduledTask -TaskName "ScreenshotJob" -TaskPath "\Path\To\Task" -ExportTo "C:\ScreenshotJob.xml"
+
+# Import Job
+Import-ScheduledTask -TaskName "ScreenshotJob" -TaskPath "\Path\To\Task" -Xml (Get-Content "C:\ScheduledJob.xml" | Out-String) -User "Username" -Password "Password"
 
 
-# Create Job startup
+# Create Job startup if not exits
 Start-Process powershell.exe -Verb runAs -ArgumentList '-noprofile -noexit -command "Set-ExecutionPolicy RemoteSigned"'
 $Settings = New-ScheduledJobOption -RunElevated -DoNotAllowDemandStart
 $Job = Register-ScheduledJob -Name "ScreenshotJob" -ScriptBlock { python 'C:\Windows\System32\screenshot.py' } -Trigger (New-JobTrigger -AtLogon -RandomDelay 00:00:15) -ScheduledJobOption $Settings
