@@ -1,6 +1,7 @@
 import os
 import datetime
 import time
+import stat
 from PIL import ImageGrab
 
 # Get path
