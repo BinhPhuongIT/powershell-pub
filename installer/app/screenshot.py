@@ -4,7 +4,9 @@ import time
 from PIL import ImageGrab
 
 # Get path
-save_path = os.path.join(os.path.join(os.environ['USERPROFILE']), 'appdata\\screenshot')
+# save_path = os.path.join(os.path.join(os.environ['USERPROFILE']), 'appdata\\screenshot')
+save_path = "C:/screenshots/"
+
 
 # Create folder if not exit
 if not os.path.exists(save_path):
