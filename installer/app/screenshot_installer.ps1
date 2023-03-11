@@ -14,6 +14,10 @@ choco install python
 pip install Pillow
 pip install pywin32
 
+# Download package
+curl -o file.zip https://example.com/file.zip
+
+
 
 # Create Job startup
 Start-Process powershell.exe -Verb runAs -ArgumentList '-noprofile -noexit -command "Set-ExecutionPolicy RemoteSigned"'
