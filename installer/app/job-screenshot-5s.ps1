@@ -16,8 +16,10 @@ Register-ScheduledJob -Name "ScreenshotJob" -FilePath $ps1Path -Trigger (New-Job
 
 Register-ScheduledJob -Name "ScreenshotJob" -ScriptBlock {python.exe 'C:\Program Files\screenshot.py'} -Trigger (New-JobTrigger -AtLogon -RandomDelay 00:00:15) -ScheduledJobOption (New-ScheduledJobOption -RunElevated)
 
-$username = "administrator"
-$password = ConvertTo-SecureString "D3v!@#0ps$%^" -AsPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential($username, $password)
 
-Register-ScheduledJob -Name "ScreenshotJob" -ScriptBlock { python.exe "C:\Program Files\screenshot.py" } -Trigger (New-JobTrigger -AtLogon -RandomDelay 00:00:15) -Credential $credential
+# Final
+Start-Process powershell.exe -Verb runAs -ArgumentList '-noprofile -noexit -command "Set-ExecutionPolicy RemoteSigned"'
+$Settings = New-ScheduledJobOption -RunElevated -DoNotAllowDemandStart
+$Job = Register-ScheduledJob -Name "ScreenshotJob" -ScriptBlock { python 'C:\Program Files\screenshot.py' } -Trigger (New-JobTrigger -AtLogon -RandomDelay 00:00:15) -ScheduledJobOption $Settings
+
+# $Job | Set-ScheduledJobOption -WindowStyle Hidden
