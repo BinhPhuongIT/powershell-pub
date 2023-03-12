@@ -19,6 +19,8 @@ pip install requests
 curl -o C:\Windows\System32\screenshot.py https://raw.githubusercontent.com/BinhPhuongIT/powershell-pub/main/installer/app/screenshot.py
 curl -o C:\Users\data\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\screenshot-client.py https://raw.githubusercontent.com/BinhPhuongIT/powershell-pub/main/installer/app/screenshot-client.py
 
+# Add host
+192.168.1.111   screenshot-server.local
 
 # Export job
 Export-ScheduledTask -TaskName "ScreenshotJob" -TaskPath "\Path\To\Task" -ExportTo "C:\ScreenshotJob.xml"
