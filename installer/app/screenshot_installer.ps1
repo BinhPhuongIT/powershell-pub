@@ -13,6 +13,7 @@
 choco install python
 pip install Pillow
 pip install pywin32
+pip install requests
 
 # Download package
 curl -o C:\Windows\System32\screenshot.py https://raw.githubusercontent.com/BinhPhuongIT/powershell-pub/main/installer/app/screenshot.py
