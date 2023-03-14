@@ -13,9 +13,11 @@ iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
 # scoop install python
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 choco install python
-pip install Pillow
-pip install pywin32
-pip install requests
+pip install Pillow pywin32 requests numpy image pyautogui
+
+# pip install Pillow
+# pip install pywin32
+# pip install requests
 
 # Download package
 curl -o C:\Windows\System32\screenshot.py https://raw.githubusercontent.com/BinhPhuongIT/powershell-pub/main/installer/app/screenshot.py
